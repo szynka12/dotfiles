@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 
@@ -13,14 +14,20 @@ export ZSH="/home/__USER__/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
 # See https://github.com/ohmyzsh/ohmyzsh/issues/5765
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
-
-plugins=(git thefuck)
+plugins=(
+  git 
+  # thefuck 
+  zsh-autosuggestions 
+  zsh-syntax-highlighting 
+  fast-syntax-highlighting 
+  zsh-autocomplete 
+  autoupdate
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,3 +57,8 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+zstyle ':autocomplete:*' min-input 1  # characters (int)
+
+zstyle ':autocomplete:*' min-delay 0.1
