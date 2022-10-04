@@ -2,17 +2,11 @@
 # 															 Variables
 # -----------------------------------------------------------------------------
 
-UPDATE := no
-MACHINE := home
-BUILD_DIR := build
-DOTFILES_PCS_REPO := git@github.com:szynka12/dotfiles-pcs.git
-DOTFILES_PCS_DIR := $(BUILD_DIR)/dotfiles-pcs
+include config.mk
+
 
 TEMPLATES := .zshrc.m4
 
-
-test: 
-	@echo $(TEMP_T)
 
 LINKS := ${HOME}/.zshrc
 LINKS += ${HOME}/.config/btop/btop.conf
@@ -24,6 +18,9 @@ M4_FLAGS += -D__MACHINE_PATH__=$(CURDIR)/$(DOTFILES_PCS_DIR)/$(MACHINE)
 #
 # Helper variables
 #
+
+
+DOTFILES_PCS_DIR := $(BUILD_DIR)/dotfiles-pcs
 
 RED := \033[0;31m
 GREEN := \033[0;32m
