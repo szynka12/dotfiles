@@ -16,6 +16,11 @@ LINKS := ${HOME}/.zshrc
 LINKS += ${HOME}/.config/btop/btop.conf
 
 
+
+DOTFILES_PCS_DIR := $(BUILD_DIR)/dotfiles-pcs
+
+
+
 M4_FLAGS := -D__USER__=${USER} 
 M4_FLAGS += -D__MACHINE_PATH__=$(CURDIR)/$(DOTFILES_PCS_DIR)/$(MACHINE)
 
@@ -24,7 +29,6 @@ M4_FLAGS += -D__MACHINE_PATH__=$(CURDIR)/$(DOTFILES_PCS_DIR)/$(MACHINE)
 #
 
 
-DOTFILES_PCS_DIR := $(BUILD_DIR)/dotfiles-pcs
 
 RED := \033[0;31m
 GREEN := \033[0;32m
@@ -136,10 +140,10 @@ FORCE: ;
 
 	(cd  $(ZSH_CUSTOM)/plugins/zsh-autocomplete && git checkout d8bfbef)
 
-$(BUILD_DIR)/%.proc: %.m4 $(if $(findstring $(UPDATE),yes),update-dotfiles-pc)
+$(BUILD_DIR)/%.proc: %.m4 $(if $(findstring $(UPDATE),yes),update-dotfiles-pc) FORCE
 	m4 $(M4_FLAGS) $< > $@
 
-$(LINKS):
+$(LINKS): FORCE
 	rm -f $@
 	$(eval FILE := $(CURDIR)/$(subst ${HOME}/,,$@))
 	$(eval GENERATED := $(CURDIR)/$(BUILD_DIR)/$(subst ${HOME}/,,$@).proc)
