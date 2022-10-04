@@ -1,0 +1,3 @@
+[submodule "repos/i3-round"]
+	path = repos/i3-round
+	url = https://github.com/terroo/i3-radius
