@@ -14,14 +14,14 @@ export ZSH="/home/__USER__/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
-# COMPLETION_WAITING_DOTS="true"
+# Uncomment the following line to display red dots whilst waiting for
+# completion. Caution: this setting can cause issues with multiline prompts
+# (zsh 5.7.1 and newer seem to work) See
+# https://github.com/ohmyzsh/ohmyzsh/issues/5765
+COMPLETION_WAITING_DOTS="true"
 
 plugins=(
   git 
-  # thefuck 
   zsh-autosuggestions 
   zsh-syntax-highlighting 
   fast-syntax-highlighting 
@@ -36,29 +36,21 @@ source $ZSH/oh-my-zsh.sh
 
 #Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='nvim'
+   export EDITOR='lvim'
  else
-   export EDITOR='vim'
+   export EDITOR='lvim'
  fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
-
+# Aliases
 . __MACHINE_PATH__/alias.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
+# Settings for autocomplete plugin
 zstyle ':autocomplete:*' min-input 1  # characters (int)
-
 zstyle ':autocomplete:*' min-delay 0.1
+
+# Ranger env variables
+export VISUAL='lvim'
+export PAGER='less'

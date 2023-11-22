@@ -13,7 +13,8 @@ TEMPLATES := .zshrc.m4
 
 
 LINKS := ${HOME}/.zshrc
-LINKS += ${HOME}/.config/btop/btop.conf
+LINKS += ${HOME}/.config/btop
+LINKS += ${HOME}/.config/ranger
 
 
 
@@ -133,18 +134,18 @@ FORCE: ;
 		$(ZSH_CUSTOM)/plugins/autoupdate,\
 		https://github.com/TamCore/autoupdate-oh-my-zsh-plugins)
 
-	$(call msg_warn, "The zsh-autocomplete repo checked out at d8bfbef" )
-	$(call msg_warn, "Related issues:" )
-	$(call msg_warn, "  https://github.com/marlonrichert/zsh-autocomplete/issues/483" )
-	$(call msg_warn, "  https://github.com/marlonrichert/zsh-autocomplete/issues/468" )
+# $(call msg_warn, "The zsh-autocomplete repo checked out at d8bfbef" )
+# $(call msg_warn, "Related issues:" )
+# $(call msg_warn, "  https://github.com/marlonrichert/zsh-autocomplete/issues/483" )
+# $(call msg_warn, "  https://github.com/marlonrichert/zsh-autocomplete/issues/468" )
 
-	(cd  $(ZSH_CUSTOM)/plugins/zsh-autocomplete && git checkout d8bfbef)
+# (cd  $(ZSH_CUSTOM)/plugins/zsh-autocomplete && git checkout d8bfbef)
 
 $(BUILD_DIR)/%.proc: %.m4 $(if $(findstring $(UPDATE),yes),update-dotfiles-pc) FORCE
 	m4 $(M4_FLAGS) $< > $@
 
 $(LINKS): FORCE
-	rm -f $@
+	rm -rf $@
 	$(eval FILE := $(CURDIR)/$(subst ${HOME}/,,$@))
 	$(eval GENERATED := $(CURDIR)/$(BUILD_DIR)/$(subst ${HOME}/,,$@).proc)
 	ln -s $(if $(wildcard $(FILE)),$(FILE),$(GENERATED)) $@
