@@ -54,3 +54,5 @@ zstyle ':autocomplete:*' min-delay 0.1
 # Ranger env variables
 export VISUAL='lvim'
 export PAGER='less'
+
+# test
