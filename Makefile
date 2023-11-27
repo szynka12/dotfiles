@@ -31,5 +31,7 @@ ranger: ${HOME}/.config/ranger ## ranger configs
 
 btop: ${HOME}/.config/btop ## btop config
 
-all:  zshrc ranger btop
+lvim: ${HOME}/.config/lvim/config.lua ## lunarvim config
+
+all:  zshrc ranger btop lvim 
 
