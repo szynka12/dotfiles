@@ -22,7 +22,7 @@ ${HOME}/%: $(CURDIR)/%
 
 ${HOME}/%: $(BUILD_DIR)/%.proc
 	rm -rf $@
-	ln -s $< $@
+	ln -s $(CURDIR)/$< $@
 
 include Makefiles/trgt_zshrc.mk
 zshrc: zsh-installed omz-installed p10k-installed zsh-plugins-installed ${HOME}/.p10k.zsh ${HOME}/.zshrc  ## zshrc (checks for shell, clones plugins)
