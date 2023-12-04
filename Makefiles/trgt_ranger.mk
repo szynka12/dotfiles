@@ -7,11 +7,13 @@ ranger-installed:
 	$(call msg_found,$(RANGER_PATH))
 
 
+
 ranger-preqs:
 	$(call soft_check_if_installed,pbzip2)
 
 ranger-plugins-installed: ranger-preqs
 	$(call update_submodule,.config/ranger/plugins/ranger-archives)
+	$(call update_submodule,.config/ranger/plugins/devicons2)
 	
 
 

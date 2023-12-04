@@ -4,3 +4,6 @@
 [submodule ".config/ranger/plugins/ranger-archives"]
 	path = .config/ranger/plugins/ranger-archives
 	url = https://github.com/maximtrp/ranger-archives.git
+[submodule ".config/ranger/plugins/devicons2"]
+	path = .config/ranger/plugins/devicons2
+	url = https://github.com/cdump/ranger-devicons2
