@@ -22,6 +22,14 @@ define msg_is_installed?
 	@printf "Checking if %s is installed... " $(1)
 endef
 
+define soft_check_if_installed
+	[ $$(command -v $(1)) ] || ( printf "$(WARNING) Could not find %s!\n" $(1) );
+endef
+
+define check_if_installed
+	[ $$(command -v $(1)) ] || ( printf "$(ERROR) Could not find ranger!\n" && exit 1 );
+endef
+
 define msg_found
 	@printf "$(OK) found %s\n" $(1)
 endef
@@ -39,5 +47,10 @@ define clone_if_not_present
 		git clone -q $(3) $(2) $(1); \
 		printf "$(OK)\n"; \
 	fi
+endef
+
+define update_submodule
+	@printf "Updating %s... " $(1);
+	@cd $(1) && git pull -q && cd -;
 endef
 

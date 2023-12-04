@@ -1,3 +1,6 @@
 [submodule "repos/i3-round"]
 	path = repos/i3-round
 	url = https://github.com/terroo/i3-radius
+[submodule ".config/ranger/plugins/ranger-archives"]
+	path = .config/ranger/plugins/ranger-archives
+	url = https://github.com/maximtrp/ranger-archives.git
