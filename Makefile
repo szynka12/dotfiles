@@ -27,7 +27,8 @@ ${HOME}/%: $(BUILD_DIR)/%.proc
 include Makefiles/trgt_zshrc.mk
 zshrc: zsh-installed omz-installed p10k-installed zsh-plugins-installed ${HOME}/.p10k.zsh ${HOME}/.zshrc  ## zshrc (checks for shell, clones plugins)
 
-ranger: ${HOME}/.config/ranger ## ranger configs
+include Makefiles/trgt_ranger.mk
+ranger: ranger-installed ranger-plugins-installed ${HOME}/.config/ranger ## ranger configs
 
 btop: ${HOME}/.config/btop ## btop config
 
