@@ -23,7 +23,7 @@ require("lvim.lsp.manager").setup("texlab", {
       rootDirectory = nil,
       build = {
         executable = 'latexmk',
-        args = { '-pdflatex=lualatex', '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+        args = { '-g', '-pdflatex=lualatex', '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
         onSave = false,
         forwardSearchAfter = false,
       },
@@ -48,3 +48,18 @@ require("lvim.lsp.manager").setup("texlab", {
   }
 
 })
+
+
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { name = "black" },
+}
+
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  { name = "flake8" },
+  {
+    name = "shellcheck",
+    args = { "--severity", "warning" },
+  },
+}
