@@ -41,8 +41,11 @@ source $ZSH/oh-my-zsh.sh
    export EDITOR='lvim'
  fi
 
-# Aliases
+# Aliases specific to a machine 
 . __MACHINE_PATH__/alias.sh
+
+# Aliases relevant for all
+alias euporie="euporie --color-scheme=dark --syntax-theme=one-dark --show-cell-borders --expand --autoinspect --autosuggest --autocomplete --edit-mode=vi --line-numbers notebook"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

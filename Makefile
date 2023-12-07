@@ -34,5 +34,7 @@ btop: ${HOME}/.config/btop ## btop config
 
 lvim: ${HOME}/.config/lvim/config.lua ## lunarvim config
 
+kitty: ${HOME}/.config/kitty
+
 all:  zshrc ranger btop lvim 
 
