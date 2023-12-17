@@ -39,7 +39,7 @@ require("lvim.lsp.manager").setup("texlab", {
       diagnosticsDelay = 300,
       latexFormatter = 'latexindent',
       latexindent = {
-        ['local'] = nil,   -- local is a reserved keyword
+        ['local'] = nil, -- local is a reserved keyword
         modifyLineBreaks = false,
       },
       bibtexFormatter = 'texlab',
@@ -52,7 +52,11 @@ require("lvim.lsp.manager").setup("texlab", {
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { name = "black" },
+  {
+    name = "black",
+    extra_args = { "--preview", "--line-length", 79 },
+    filetypes = { "python" }
+  },
 }
 
 local linters = require "lvim.lsp.null-ls.linters"
