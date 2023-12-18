@@ -2,7 +2,21 @@
 vim.g.tokyonight_style = "moon" -- can be storm, night, or day
 lvim.colorscheme = 'tokyonight'
 
+lvim.plugins = {
+  {
+    "barreiroleo/ltex-extra.nvim",
+    config = false, -- run require("neorg").setup()
+  },
+}
+
 require("lvim.lsp.manager").setup("ltex", {
+  on_attach = function(client, bufnr)
+    -- rest of your on_attach process.
+    require("ltex_extra").setup {
+      load_langs = { "en-GB" },
+      path = ".ltex"
+    }
+  end,
   settings = {
     ltex = {
       language = "en-GB",
@@ -27,14 +41,13 @@ require("lvim.lsp.manager").setup("texlab", {
         onSave = false,
         forwardSearchAfter = false,
       },
-      auxDirectory = '.',
       forwardSearch = {
-        executable = nil,
-        args = {},
+        executable = "zathura",
+        args = { "--synctex-forward", "%l:1:%f", "%p" },
       },
       chktex = {
-        onOpenAndSave = false,
-        onEdit = false,
+        onOpenAndSave = true,
+        onEdit = true,
       },
       diagnosticsDelay = 300,
       latexFormatter = 'latexindent',

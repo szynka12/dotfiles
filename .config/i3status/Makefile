@@ -38,7 +38,5 @@ kitty: ${HOME}/.config/kitty
 
 i3: ${HOME}/.config/i3 ${HOME}/.config/i3status
 
-zathura: ${HOME}/.config/zathura
-
-all:  zshrc ranger btop lvim kitty i3 zathura
+all:  zshrc ranger btop lvim 
 
