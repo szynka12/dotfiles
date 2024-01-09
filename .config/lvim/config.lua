@@ -58,7 +58,7 @@ require("lvim.lsp.manager").setup("texlab", {
       rootDirectory = nil,
       build = {
         executable = 'latexmk',
-        args = { '-g', '-pdflatex=lualatex', '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+        args = { '-g', '-pdflatex=lualatex', '-shell-escape', '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
         onSave = false,
         forwardSearchAfter = false,
       },
