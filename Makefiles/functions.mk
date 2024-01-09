@@ -23,11 +23,11 @@ define msg_is_installed?
 endef
 
 define soft_check_if_installed
-	[ $$(command -v $(1)) ] || ( printf "$(WARNING) Could not find %s!\n" $(1) );
+	@[ $$(command -v $(1)) ] || ( printf "$(WARNING) Could not find %s!\n" $(1) );
 endef
 
 define check_if_installed
-	[ $$(command -v $(1)) ] || ( printf "$(ERROR) Could not find ranger!\n" && exit 1 );
+	@[ $$(command -v $(1)) ] || ( printf "$(ERROR) Could not find ranger!\n" && exit 1 );
 endef
 
 define msg_found

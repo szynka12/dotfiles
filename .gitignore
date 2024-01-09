@@ -1,2 +1,3 @@
 config.mk
 build
+__pycache__
