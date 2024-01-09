@@ -7,6 +7,27 @@ lvim.plugins = {
     "barreiroleo/ltex-extra.nvim",
     config = false, -- run require("neorg").setup()
   },
+  {
+    "NeogitOrg/neogit",
+    cmd = "Neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = true
+  },
+  {
+    'mkropat/vim-ezguifont'
+  },
+  {
+    "folke/todo-comments.nvim",
+    event = "BufRead",
+    config = function()
+      require("todo-comments").setup()
+    end,
+  }
+
 }
 
 require("lvim.lsp.manager").setup("ltex", {
@@ -80,3 +101,11 @@ linters.setup {
     args = { "--severity", "warning" },
   },
 }
+
+if vim.fn.has("gui_running") then
+  vim.opt.guifont = "FiraCode Nerd Font Ret:h12:w53"
+  lvim.keys.normal_mode["<C-=>"] = ":IncreaseFont<CR>"
+  lvim.keys.normal_mode["<C-+>"] = ":IncreaseFont<CR>"
+  lvim.keys.normal_mode["<C-0>"] = ":ResetFontSize<CR>"
+  lvim.keys.normal_mode["<C-->"] = ":DecreaseFont<CR>"
+end
