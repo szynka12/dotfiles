@@ -102,6 +102,9 @@ linters.setup {
   },
 }
 
+vim.keymap.set('n', 'k', function() return vim.v.count == 0 and 'gk' or 'k' end , { expr = true })
+vim.keymap.set('n', 'j', function() return vim.v.count == 0 and 'gj' or 'j' end , { expr = true })
+
 if vim.fn.has("gui_running") then
   vim.opt.guifont = "FiraCode Nerd Font Ret:h12:w53"
   lvim.keys.normal_mode["<C-=>"] = ":IncreaseFont<CR>"
