@@ -26,8 +26,12 @@ lvim.plugins = {
     config = function()
       require("todo-comments").setup()
     end,
-  }
-
+  },
+  {
+    "hedyhli/outline.nvim",
+    cmd = { "Outline", "OutlineOpen" },
+    config = true
+  },
 }
 
 require("lvim.lsp.manager").setup("ltex", {
@@ -102,8 +106,11 @@ linters.setup {
   },
 }
 
-vim.keymap.set('n', 'k', function() return vim.v.count == 0 and 'gk' or 'k' end , { expr = true })
-vim.keymap.set('n', 'j', function() return vim.v.count == 0 and 'gj' or 'j' end , { expr = true })
+vim.keymap.set('n', 'k', function() return vim.v.count == 0 and 'gk' or 'k' end, { expr = true })
+vim.keymap.set('n', 'j', function() return vim.v.count == 0 and 'gj' or 'j' end, { expr = true })
+lvim.builtin.which_key.mappings["lo"] = {
+  "<cmd>Outline<CR>", "Projects"
+}
 
 if vim.fn.has("gui_running") then
   vim.opt.guifont = "FiraCode Nerd Font Ret:h12:w53"
