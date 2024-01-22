@@ -128,7 +128,7 @@ bindsym $mod+F3         exec $term -e 'ranger'    # ranger
 bindsym $mod+F5         exec $spotify             # spotify
 bindsym $mod+Shift+F5   exec $term -e 'mocp'      # mocp
 bindsym $mod+F8         exec evolution            # evolution
-bindsym Print           exec --no-startup-id flameshot gui -p ~/Pictures/capture
+bindsym Print           exec --no-startup-id flameshot gui 
 
 # Binds: movement **************************************************************
 
