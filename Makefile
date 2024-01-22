@@ -9,12 +9,8 @@ include Makefiles/trgt_prerequisites.mk
 include Makefiles/trgt_dotfiles_pcs.mk
 
 
-
-	
-
 $(BUILD_DIR)/%.proc: %.m4 $(if $(findstring $(UPDATE),yes),update-dotfiles-pc) make-build 
 	m4 $(M4_FLAGS) $< > $@
-
 
 ${HOME}/%: $(CURDIR)/%
 	rm -rf $@
@@ -40,5 +36,7 @@ i3: ${HOME}/.config/i3 ${HOME}/.config/i3status
 
 zathura: ${HOME}/.config/zathura
 
-all:  zshrc ranger btop lvim kitty i3 zathura
+picom: ${HOME}/.config/picom
+
+all:  zshrc ranger btop lvim kitty i3 zathura picom
 
