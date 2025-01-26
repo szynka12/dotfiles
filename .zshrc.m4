@@ -12,50 +12,42 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/home/__USER__/.oh-my-zsh"
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Uncomment the following line to display red dots whilst waiting for
-# completion. Caution: this setting can cause issues with multiline prompts
-# (zsh 5.7.1 and newer seem to work) See
-# https://github.com/ohmyzsh/ohmyzsh/issues/5765
-COMPLETION_WAITING_DOTS="true"
+# Theoretically I could exchange prompts, but nah
+. $HOME/dotfiles/src/prompt/__PROMPT__.sh
 
 plugins=(
   git 
-  zsh-autosuggestions 
-  zsh-syntax-highlighting 
-  fast-syntax-highlighting 
   zsh-autocomplete 
+  zsh-syntax-highlighting 
+  zsh-autosuggestions 
   autoupdate
 )
 
 source $ZSH/oh-my-zsh.sh
 
+. $HOME/dotfiles/src/zsh_config.sh
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 #Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='lvim'
- else
-   export EDITOR='lvim'
- fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='lv'
+else
+  export EDITOR='lv'
+fi
+
+# Ranger env variables
+export VISUAL='lv'
+export PAGER='less'
+
+
+# Aliases -------------------------------------
+alias alg="$EDITOR $HOME/dotfiles/alias.sh"
+alias alm="$EDITOR __MACHINE_PATH__/alias.sh"
+
+# general aliases
+. $HOME/dotfiles/src/alias.sh
 
 # Aliases specific to a machine 
 . __MACHINE_PATH__/alias.sh
-
-# Aliases relevant for all
-alias euporie="euporie --color-scheme=dark --syntax-theme=one-dark --show-cell-borders --expand --autoinspect --autosuggest --autocomplete --edit-mode=vi --line-numbers notebook"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Settings for autocomplete plugin
-zstyle ':autocomplete:*' min-input 1  # characters (int)
-zstyle ':autocomplete:*' min-delay 0.1
-
-# Ranger env variables
-export VISUAL='lvim'
-export PAGER='less'
-
-# test

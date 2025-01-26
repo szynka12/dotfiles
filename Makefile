@@ -5,6 +5,7 @@ include config.mk
 DOTFILES_PCS_DIR := $(BUILD_DIR)/dotfiles-pcs
 M4_FLAGS := -D__USER__=${USER} 
 M4_FLAGS += -D__MACHINE_PATH__=$(CURDIR)/$(DOTFILES_PCS_DIR)/$(MACHINE)
+M4_FLAGS += -D__PROMPT__=$(PROMPT)
 include Makefiles/trgt_prerequisites.mk
 include Makefiles/trgt_dotfiles_pcs.mk
 

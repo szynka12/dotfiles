@@ -32,6 +32,7 @@ lvim.plugins = {
     cmd = { "Outline", "OutlineOpen" },
     config = true
   },
+  { "danymat/neogen", config = true },
 }
 
 require("lvim.lsp.manager").setup("ltex", {
