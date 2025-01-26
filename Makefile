@@ -39,5 +39,8 @@ zathura: ${HOME}/.config/zathura
 
 picom: ${HOME}/.config/picom
 
+include Makefiles/trgt_tmux.mk
+tmux: tmux-plugins-installed ${HOME}/.tmux.conf
+
 all:  zshrc ranger btop lvim kitty i3 zathura picom
 
