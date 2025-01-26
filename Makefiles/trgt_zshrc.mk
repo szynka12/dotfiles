@@ -26,9 +26,9 @@ zsh-plugins-installed:
 		$(ZSH_CUSTOM)/plugins/zsh-syntax-highlighting,\
 		https://github.com/zsh-users/zsh-syntax-highlighting.git)
 	
-	$(call clone_if_not_present,\
-		$(ZSH_CUSTOM)/plugins/fast-syntax-highlighting,\
-		https://github.com/zdharma-continuum/fast-syntax-highlighting.git)
+# $(call clone_if_not_present,\
+#   $(ZSH_CUSTOM)/plugins/fast-syntax-highlighting,\
+#   https://github.com/zdharma-continuum/fast-syntax-highlighting.git)
 
 	$(call clone_if_not_present,\
 		$(ZSH_CUSTOM)/plugins/zsh-autocomplete,\
