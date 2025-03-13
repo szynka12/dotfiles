@@ -1,6 +1,7 @@
-tmux-plugins-installed:
+tmux-plugins-folder:
 	mkdir -p ${HOME}/dotfiles/build/tmux-plugins
+
+tmux-plugin-manager:
 	$(call clone_if_not_present,\
-		${HOME}/dotfiles/build/tmux-plugins/catppuccin,\
-	  https://github.com/catppuccin/tmux.git, \
-		-b v2.1.2)
+		build/tmux-plugins/tpm,\
+	  https://github.com/tmux-plugins/tpm)

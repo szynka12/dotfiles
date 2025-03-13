@@ -13,19 +13,19 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 export ZSH="/home/__USER__/.oh-my-zsh"
 
 # Theoretically I could exchange prompts, but nah
-. $HOME/dotfiles/src/prompt/__PROMPT__.sh
+. __SRC_PATH__/prompt/__PROMPT__.sh
 
 plugins=(
   git 
-  zsh-autocomplete 
+  # zsh-autocomplete 
   zsh-syntax-highlighting 
-  zsh-autosuggestions 
+  # zsh-autosuggestions 
   autoupdate
 )
 
 source $ZSH/oh-my-zsh.sh
 
-. $HOME/dotfiles/src/zsh_config.sh
+. __SRC_PATH__/zsh_config.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -47,7 +47,7 @@ alias alg="$EDITOR $HOME/dotfiles/alias.sh"
 alias alm="$EDITOR __MACHINE_PATH__/alias.sh"
 
 # general aliases
-. $HOME/dotfiles/src/alias.sh
+. __SRC_PATH__/alias.sh
 
 # Aliases specific to a machine 
 . __MACHINE_PATH__/alias.sh
