@@ -11,8 +11,7 @@ lvim.plugins = {
     "NeogitOrg/neogit",
     cmd = "Neogit",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
+      "nvim-lua/plenary.nvim", "sindrets/diffview.nvim",
       "nvim-telescope/telescope.nvim",
     },
     config = true
@@ -62,7 +61,9 @@ require("lvim.lsp.manager").setup("texlab", {
       rootDirectory = nil,
       build = {
         executable = 'latexmk',
-        args = { '-g', '-pdflatex=lualatex', '-shell-escape', '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+        args = { '-g',
+          '-pdflatex=lualatex', 
+          '-shell-escape', '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
         onSave = false,
         forwardSearchAfter = false,
       },
@@ -113,7 +114,7 @@ lvim.builtin.which_key.mappings["lo"] = {
 }
 
 if vim.fn.has("gui_running") then
-  vim.opt.guifont = "FiraCode Nerd Font Ret:h12:w53"
+  vim.opt.guifont = "JetBrainsMono Nerd Font:h12:w53"
   lvim.keys.normal_mode["<C-=>"] = ":IncreaseFont<CR>"
   lvim.keys.normal_mode["<C-+>"] = ":IncreaseFont<CR>"
   lvim.keys.normal_mode["<C-0>"] = ":ResetFontSize<CR>"
