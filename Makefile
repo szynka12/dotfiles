@@ -30,8 +30,6 @@ zshrc: zsh-installed omz-installed p10k-installed zsh-plugins-installed ${HOME}/
 include Makefiles/trgt_ranger.mk
 ranger: ranger-installed ranger-plugins-installed ${HOME}/.config/ranger ## ranger configs
 
-btop: ${HOME}/.config/btop ## btop config
-
 lvim: ${HOME}/.config/lvim/config.lua ## lunarvim config
 
 kitty: ${HOME}/.config/kitty
@@ -47,5 +45,5 @@ tmux: tmux-plugins-folder tmux-plugin-manager ${HOME}/.tmux.conf ## tmux configu
 
 rclone: ${HOME}/.config/rclone ## rclone config
 
-all:  zshrc ranger btop lvim kitty i3 zathura picom 
+all:  zshrc ranger lvim kitty i3 zathura picom 
 
