@@ -42,6 +42,8 @@ zathura: ${HOME}/.config/zathura ## zathura configuration
 
 picom: ${HOME}/.config/picom ## picom configuration
 
+eza: ${HOME}/.config/eza ## eza configuration (ls replacement)
+
 include Makefiles/trgt_tmux.mk
 tmux: tmux-plugins-folder tmux-plugin-manager ${HOME}/.tmux.conf ## tmux configuration  
 
