@@ -30,7 +30,9 @@ zshrc: zsh-installed omz-installed p10k-installed zsh-plugins-installed ${HOME}/
 include Makefiles/trgt_ranger.mk
 ranger: ranger-installed ranger-plugins-installed ${HOME}/.config/ranger ## ranger configs
 
-lvim: ${HOME}/.config/lvim/config.lua ## lunarvim config
+# lvim: ${HOME}/.config/lvim/config.lua ## lunarvim config
+
+lv: ${HOME}/.config/nvim ## lazyvim config
 
 kitty: ${HOME}/.config/kitty
 
