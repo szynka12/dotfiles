@@ -33,6 +33,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("gmsh_file"),
+  pattern = { "*.geo" },
+  callback = function()
+    vim.bo.filetype = "gmsh"
+  end,
+})
+
 -- -- set venv for working with molten.nvim
 -- vim.api.nvim_create_autocmd("FileType", {
 --   group = augroup("jupyter_molten"),

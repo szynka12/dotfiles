@@ -9,6 +9,12 @@ vim.g.ai_cmp = false
 
 vim.g.python3_host_prog = vim.fn.expand("~/.virtualenvs/neovim/bin/python3")
 
+vim.filetype.add({
+  extension = {
+    gmsh = "geo",
+  },
+})
+
 if vim.g.neovide then
   vim.o.guifont = "Hack Nerd Font:h14"
   vim.g.neovide_opacity = 0.975
