@@ -1,0 +1,21 @@
+live_config_reload = true
+
+[env]
+WINIT_UNIX_BACKEND="x11"
+TERM="xterm-256color"
+
+[window]
+decorations = "Full"
+dynamic_padding = true
+
+[colors]
+primary = { background = "#000000" }
+
+
+[font]
+size = 17
+normal =      { family = "JetBrainsMono NF", style = "Medium" }
+bold =        { family = "JetBrainsMono NF", style = "ExtraBold" }
+bold_italic = { family = "JetBrainsMono NF", style = "ExtraBold Italic" }
+italic =      { family = "JetBrainsMono NF", style = "Medium Italic" }
+

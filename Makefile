@@ -34,7 +34,11 @@ ranger: ranger-installed ranger-plugins-installed ${HOME}/.config/ranger ## rang
 
 lv: ${HOME}/.config/nvim ## lazyvim config
 
+doom-emacs: ${HOME}/.config/doom ## Doom emacs config
+
 kitty: ${HOME}/.config/kitty
+
+alacritty: ${HOME}/.config/alacritty ## alacritty
 
 i3: ${HOME}/.config/i3 ${HOME}/.config/i3status
 

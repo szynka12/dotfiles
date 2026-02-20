@@ -1,4 +1,4 @@
-# vim: set filetype=zsh:
+# vim: set filetype=conf : 
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -29,10 +29,7 @@ source $ZSH/oh-my-zsh.sh
 
 . __SRC_PATH__/zsh_config.sh
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-#Preferred editor for local and remote sessions
+# Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='lv'
 else
@@ -43,9 +40,11 @@ fi
 export VISUAL='lv'
 export PAGER='less'
 
+# Terminal
+# export TERM=alacritty
 
-# Aliases -------------------------------------
-alias alg="$EDITOR $HOME/dotfiles/alias.sh"
+# Aliases that need to go into this file 
+alias alg="$EDITOR __SRC_PATH__/alias.sh"
 alias alm="$EDITOR __MACHINE_PATH__/alias.sh"
 
 # general aliases

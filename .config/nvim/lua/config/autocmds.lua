@@ -41,6 +41,24 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- wrap and check for spell in text filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("wrap_spell"),
+  pattern = { "odin" },
+  callback = function()
+    vim.api.nvim_create_user_command("GrepOdinLibs", function()
+      local odin_source = vim.fn.system("odin root")
+      local s = require("snacks")
+      s.picker.grep({
+        filetype = "odin",
+        dirs = { odin_source .. "/core", odin_source .. "/base", odin_source .. "/vendor" },
+      })
+    end, {})
+
+    vim.keymap.set("n", "<Leader>cO", ":GrepOdinLibs<CR>", { noremap = true })
+  end,
+})
+
 -- -- set venv for working with molten.nvim
 -- vim.api.nvim_create_autocmd("FileType", {
 --   group = augroup("jupyter_molten"),
