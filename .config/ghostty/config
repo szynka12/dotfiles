@@ -1,0 +1,30 @@
+# Config syntax crash course
+# ==========================
+# # The config file consists of simple key-value pairs,
+# # separated by equals signs.
+# font-family = Iosevka
+# window-padding-x = 2
+#
+theme = "Catppuccin Mocha"
+background-opacity = 0.98
+background-blur = 20
+gtk-single-instance = desktop
+scrollback-limit = 100000000
+
+clipboard-write = allow
+clipboard-paste-protection = true
+copy-on-select = true
+ 
+# prevent title query attacks
+title-report = false
+
+font-family = JetBrainsMono NF
+font-size = 16
+ 
+# programming ligatures
+# font-feature = +liga 
+# font-feature = +calt
+# font-feature = +dlig
+
+
+mouse-scroll-multiplier = 0.5

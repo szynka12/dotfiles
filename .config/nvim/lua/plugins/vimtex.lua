@@ -10,8 +10,10 @@ return {
 
     -- compilation
     vim.g.vimtex_compiler_latexmk = {
+      out_dir = "build",
       options = {
         "-verbose",
+        -- "-output-directory=./build",
         "-file-line-error",
         "-synctex=1",
         "-interaction=nonstopmode",

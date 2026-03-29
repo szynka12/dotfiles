@@ -36,9 +36,13 @@ lv: ${HOME}/.config/nvim ## lazyvim config
 
 doom-emacs: ${HOME}/.config/doom ## Doom emacs config
 
+# Terminals ------------------
+
 kitty: ${HOME}/.config/kitty
 
 alacritty: ${HOME}/.config/alacritty ## alacritty
+
+ghostty: ${HOME}/.config/ghostty ## ghostty
 
 i3: ${HOME}/.config/i3 ${HOME}/.config/i3status
 

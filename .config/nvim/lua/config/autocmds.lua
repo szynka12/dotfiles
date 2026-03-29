@@ -41,13 +41,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- wrap and check for spell in text filetypes
+-- Features for working with odin lang
+local odin_source = vim.fn.system("odin root")
+
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("wrap_spell"),
   pattern = { "odin" },
   callback = function()
+    -- Grep the libraries
     vim.api.nvim_create_user_command("GrepOdinLibs", function()
-      local odin_source = vim.fn.system("odin root")
       local s = require("snacks")
       s.picker.grep({
         filetype = "odin",
@@ -56,14 +57,27 @@ vim.api.nvim_create_autocmd("FileType", {
     end, {})
 
     vim.keymap.set("n", "<Leader>cO", ":GrepOdinLibs<CR>", { noremap = true })
+
+    -- Create custom surrounding for derefencing and converting to a pointer
+    vim.b.minisurround_config = {
+      custom_surroundings = {
+        -- dereference
+        ["^"] = {
+          output = { left = "(", right = ")^" },
+        },
+        -- pointer
+        ["&"] = {
+          output = { left = "&(", right = ")" },
+        },
+      },
+    }
   end,
 })
 
--- -- set venv for working with molten.nvim
--- vim.api.nvim_create_autocmd("FileType", {
---   group = augroup("jupyter_molten"),
---   pattern = { "ipynb" },
---   callback = function()
---     vim.g.python3_host_prog = vim.fn.expand("~/home/szynka/Repos/math/venv/bin/python3")
---   end,
--- })
+vim.api.nvim_create_autocmd("BufRead", {
+  pattern = { odin_source .. "*" },
+  callback = function()
+    vim.bo.readonly = true
+    vim.bo.modifiable = false
+  end,
+})
