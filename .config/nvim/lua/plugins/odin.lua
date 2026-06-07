@@ -15,6 +15,9 @@ return {
             enable_snippets = true,
             enable_checker_only_saved = true,
             enable_auto_import = true,
+            collections = {
+              { name = "engine", path = vim.fs.root(0, ".git") .. "engine" },
+            },
           },
         },
       },

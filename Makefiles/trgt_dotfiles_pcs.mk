@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-# 									Cloning the configuration repositories
+#	Cloning the configuration repositories
 # -----------------------------------------------------------------------------
 FRESHLY_CLONED := no
 clone-dotfiles-pcs: make-build ## clone pc specific configurations
@@ -9,5 +9,5 @@ clone-dotfiles-pcs: make-build ## clone pc specific configurations
 
 update-dotfiles-pc: clone-dotfiles-pcs ## update dotfiles-pcs repo
 	@if [ $(FRESHLY_CLONED) = no ]; then\
-			cd $(DOTFILES_PCS_DIR) && git pull;\
-  fi
+		cd $(DOTFILES_PCS_DIR) && git pull;\
+	fi
